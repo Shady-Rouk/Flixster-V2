@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.google.gson.Gson
 
 const val MOVIE_DETAIL = "MOVIE_DETAIL"
@@ -42,6 +43,7 @@ class UpcomingMovieRecyclerViewAdapter (
         Glide.with(holder.mView)
             .load("https://image.tmdb.org/t/p/w500" + movie.moviePosterUrl)
             .centerInside()
+            .transform(RoundedCorners(30))
             .into(holder.mMoviePoster)
 
         val gson = Gson()
